@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45206F5DA95E95DBADE84333 /* Pods_CatchPokemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A7119B8FA6A21AE85F55EB /* Pods_CatchPokemon.framework */; };
 		76F589FF2972464500C4CB44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F589FE2972464500C4CB44 /* AppDelegate.swift */; };
 		76F58A012972464500C4CB44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F58A002972464500C4CB44 /* SceneDelegate.swift */; };
 		76F58A032972464500C4CB44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F58A022972464500C4CB44 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		586DE84AE324C80C1DA4285E /* Pods-CatchPokemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatchPokemon.debug.xcconfig"; path = "Target Support Files/Pods-CatchPokemon/Pods-CatchPokemon.debug.xcconfig"; sourceTree = "<group>"; };
+		67A7119B8FA6A21AE85F55EB /* Pods_CatchPokemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatchPokemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CC7E504A8E8FEDD08E0DA46 /* Pods-CatchPokemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatchPokemon.release.xcconfig"; path = "Target Support Files/Pods-CatchPokemon/Pods-CatchPokemon.release.xcconfig"; sourceTree = "<group>"; };
 		76F589FB2972464500C4CB44 /* CatchPokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchPokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F589FE2972464500C4CB44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76F58A002972464500C4CB44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45206F5DA95E95DBADE84333 /* Pods_CatchPokemon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		076ECE04E94FAC8E65C7FABE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67A7119B8FA6A21AE85F55EB /* Pods_CatchPokemon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0ADDA231E40597230CDAA1C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				586DE84AE324C80C1DA4285E /* Pods-CatchPokemon.debug.xcconfig */,
+				6CC7E504A8E8FEDD08E0DA46 /* Pods-CatchPokemon.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		76F589F22972464500C4CB44 = {
 			isa = PBXGroup;
 			children = (
 				76F589FD2972464500C4CB44 /* CatchPokemon */,
 				76F589FC2972464500C4CB44 /* Products */,
+				0ADDA231E40597230CDAA1C2 /* Pods */,
+				076ECE04E94FAC8E65C7FABE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76F58A0F2972464600C4CB44 /* Build configuration list for PBXNativeTarget "CatchPokemon" */;
 			buildPhases = (
+				1DD115F039921EB7923976C7 /* [CP] Check Pods Manifest.lock */,
 				76F589F72972464500C4CB44 /* Sources */,
 				76F589F82972464500C4CB44 /* Frameworks */,
 				76F589F92972464500C4CB44 /* Resources */,
+				78B17F4E566A5B3447C88095 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DD115F039921EB7923976C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CatchPokemon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78B17F4E566A5B3447C88095 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatchPokemon/Pods-CatchPokemon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatchPokemon/Pods-CatchPokemon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CatchPokemon/Pods-CatchPokemon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76F589F72972464500C4CB44 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		76F58A102972464600C4CB44 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 586DE84AE324C80C1DA4285E /* Pods-CatchPokemon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +379,7 @@
 		};
 		76F58A112972464600C4CB44 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CC7E504A8E8FEDD08E0DA46 /* Pods-CatchPokemon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
