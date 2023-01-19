@@ -10,7 +10,7 @@
 		45206F5DA95E95DBADE84333 /* Pods_CatchPokemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A7119B8FA6A21AE85F55EB /* Pods_CatchPokemon.framework */; };
 		76F589FF2972464500C4CB44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F589FE2972464500C4CB44 /* AppDelegate.swift */; };
 		76F58A012972464500C4CB44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F58A002972464500C4CB44 /* SceneDelegate.swift */; };
-		76F58A032972464500C4CB44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F58A022972464500C4CB44 /* ViewController.swift */; };
+		76F58A032972464500C4CB44 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F58A022972464500C4CB44 /* PokemonViewController.swift */; };
 		76F58A062972464500C4CB44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F58A042972464500C4CB44 /* Main.storyboard */; };
 		76F58A082972464600C4CB44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76F58A072972464600C4CB44 /* Assets.xcassets */; };
 		76F58A0B2972464600C4CB44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76F58A092972464600C4CB44 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		76F589FB2972464500C4CB44 /* CatchPokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchPokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76F589FE2972464500C4CB44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76F58A002972464500C4CB44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		76F58A022972464500C4CB44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		76F58A022972464500C4CB44 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		76F58A052972464500C4CB44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76F58A072972464600C4CB44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76F58A0A2972464600C4CB44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,7 +56,6 @@
 				586DE84AE324C80C1DA4285E /* Pods-CatchPokemon.debug.xcconfig */,
 				6CC7E504A8E8FEDD08E0DA46 /* Pods-CatchPokemon.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,7 +82,7 @@
 			children = (
 				76F589FE2972464500C4CB44 /* AppDelegate.swift */,
 				76F58A002972464500C4CB44 /* SceneDelegate.swift */,
-				76F58A022972464500C4CB44 /* ViewController.swift */,
+				76F58A022972464500C4CB44 /* PokemonViewController.swift */,
 				76F58A042972464500C4CB44 /* Main.storyboard */,
 				76F58A072972464600C4CB44 /* Assets.xcassets */,
 				76F58A092972464600C4CB44 /* LaunchScreen.storyboard */,
@@ -207,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76F58A032972464500C4CB44 /* ViewController.swift in Sources */,
+				76F58A032972464500C4CB44 /* PokemonViewController.swift in Sources */,
 				76F589FF2972464500C4CB44 /* AppDelegate.swift in Sources */,
 				76F58A012972464500C4CB44 /* SceneDelegate.swift in Sources */,
 			);
@@ -357,6 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 84664PFYLJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CatchPokemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -385,6 +385,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 84664PFYLJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CatchPokemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
