@@ -37,13 +37,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qcc-W7-Vrk" userLabel="BodyView">
-                                        <rect key="frame" x="0.0" y="177.5" width="378" height="255"/>
+                                        <rect key="frame" x="0.0" y="155" width="378" height="300.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="template" translatesAutoresizingMaskIntoConstraints="NO" id="u9D-Dw-rep">
                                                 <rect key="frame" x="61" y="0.0" width="256" height="255"/>
                                             </imageView>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sí, es un Picachu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLT-Dc-ecY">
-                                                <rect key="frame" x="108.5" y="0.0" width="161" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sí, es un Picachu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLT-Dc-ecY">
+                                                <rect key="frame" x="108.5" y="275" width="161" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -75,6 +75,9 @@
                                                     <directionalEdgeInsets key="contentInsets" top="8" leading="8" bottom="8" trailing="8"/>
                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2wT-ua-FBS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jba-bo-YVi">
                                                 <rect key="frame" x="0.0" y="60" width="378" height="45"/>
@@ -151,6 +154,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="labelMessage" destination="OLT-Dc-ecY" id="7cd-nJ-cdl"/>
+                        <outlet property="labelScore" destination="8XG-Ds-yLJ" id="1Dy-KL-Bcl"/>
+                        <outlet property="pokemonImage" destination="u9D-Dw-rep" id="pUz-2X-18K"/>
+                        <outletCollection property="answerButtons" destination="vab-6D-aMa" collectionClass="NSMutableArray" id="AGN-gE-gUn"/>
+                        <outletCollection property="answerButtons" destination="jba-bo-YVi" collectionClass="NSMutableArray" id="em7-VS-Q1A"/>
+                        <outletCollection property="answerButtons" destination="feq-aH-Nfe" collectionClass="NSMutableArray" id="Ayn-QC-khs"/>
+                        <outletCollection property="answerButtons" destination="NqA-YK-tX0" collectionClass="NSMutableArray" id="L4S-W3-LKA"/>
                         <segue destination="opP-h4-U9o" kind="presentation" identifier="goToResults" modalPresentationStyle="fullScreen" id="v0C-2c-0hd"/>
                     </connections>
                 </viewController>
