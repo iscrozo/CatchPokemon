@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class PokemonViewController: UIViewController {
     
@@ -14,10 +15,21 @@ class PokemonViewController: UIViewController {
     @IBOutlet weak var labelMessage: UILabel!
     @IBOutlet var answerButtons: [UIButton]!
     
+    lazy var pokemonManager = PokemonManager()
+    lazy var imageManager = ImageManager()
+    var random4Pokemons: [PokemonModel] = []
+    var correctAnswer: String = ""
+    var correctAnswerImage: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        pokemonManager.delegate = self
+        imageManager.delegate = self
         createButtons()
+        pokemonManager.fetchPokemon()
+        
+        
     }
 
     
@@ -36,8 +48,41 @@ class PokemonViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
         print(sender.titleLabel?.text ?? "")
     }
-    
-    
-    
+        
 }
 
+extension PokemonViewController: PokemonManagerDelegate {
+    func didUpdatePokemon(pokemons: [PokemonModel]) {
+//        print(pokemons.choose(4))
+        random4Pokemons = pokemons.choose(4)
+        let index = Int.random(in: 0...3)
+        let imageData = random4Pokemons[index].imageURL!
+        correctAnswer = random4Pokemons[index].name!
+        
+        imageManager.fetchImage(url: imageData)
+    }
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}
+
+extension PokemonViewController: ImageManagerDelegate {
+    func didUpdateImage(image: ImageModel) {
+        print(image.imageURL)
+    }
+    func didFailWithErrorImage(error: Error) {
+        print(error)
+    }
+}
+
+extension Collection where Indices.Iterator.Element == Index {
+    public subscript(safe index: Index) -> Iterator.Element? {
+        return (startIndex <= index && index > endIndex) ? self[index]: nil
+    }
+}
+
+extension Collection {
+    func choose(_ n: Int) -> Array<Element> {
+        Array(shuffled().prefix(n))
+    }
+}
