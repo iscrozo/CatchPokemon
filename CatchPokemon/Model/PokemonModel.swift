@@ -10,6 +10,6 @@ import Foundation
 struct PokemonModel
 
 {
-    let name: String
-    let imageURL: String
+    let name: String?
+    let imageURL: String?
 }

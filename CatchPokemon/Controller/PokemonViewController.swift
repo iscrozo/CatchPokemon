@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftUI
+import Kingfisher
 
 class PokemonViewController: UIViewController {
     
@@ -17,7 +17,15 @@ class PokemonViewController: UIViewController {
     
     lazy var pokemonManager = PokemonManager()
     lazy var imageManager = ImageManager()
-    var random4Pokemons: [PokemonModel] = []
+    lazy var game = GameModel()
+    
+    
+    var random4Pokemons: [PokemonModel] = [] {
+        didSet {
+            setButtonTitle()
+        }
+    }
+    
     var correctAnswer: String = ""
     var correctAnswerImage: String = ""
     
@@ -26,9 +34,11 @@ class PokemonViewController: UIViewController {
         // Do any additional setup after loading the view.
         pokemonManager.delegate = self
         imageManager.delegate = self
+        
         createButtons()
         pokemonManager.fetchPokemon()
         
+        labelMessage.text = ""
         
     }
 
@@ -44,9 +54,55 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    private func setButtonTitle(){
+        for ( index, button) in answerButtons.enumerated(){
+            DispatchQueue.main.async { [self] in
+                button.setTitle(random4Pokemons[index].name?.capitalized, for: .normal)
+//                print(random4Pokemons[safe: index]?.name?.capitalized)
+            }
+        }
+    }
+    
 
     @IBAction func buttonPressed(_ sender: UIButton) {
-        print(sender.titleLabel?.text ?? "")
+//        print(sender.titleLabel?.text ?? "")
+        let userAnswer = sender.title(for: .normal)!
+        if game.checkAnswer(userAnswer, correctAnswer) {
+            labelMessage.text = "Si, es un \(userAnswer.capitalized)"
+            labelScore.text = "Puntaje: \(game.score)"
+            
+            sender.layer.borderColor = UIColor.systemGreen.cgColor
+            sender.layer.borderWidth = 2
+            
+            let url = URL(string: correctAnswerImage)
+            pokemonImage.kf.setImage(with: url)
+            
+            Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false) { timer in
+                self.pokemonManager.fetchPokemon()
+                self.labelMessage.text = ""
+                sender.layer.borderWidth = 0
+            }
+        } else {
+            labelMessage.text = "No, es un \(userAnswer.capitalized)"
+            sender.layer.borderColor = UIColor.systemRed.cgColor
+            sender.layer.borderWidth = 2
+            
+            let url = URL(string: correctAnswerImage)
+            pokemonImage.kf.setImage(with: url)
+            
+            Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false) { [self] timer in
+                sender.layer.borderWidth = 0
+                resetGame()
+            }
+        }
+        
+    }
+    
+    func resetGame() {
+        self.pokemonManager.fetchPokemon()
+        game.setScore(score: 0)
+        labelScore.text = "Puntaje \(game.score)"
+        self.labelMessage.text = ""
     }
         
 }
@@ -56,8 +112,8 @@ extension PokemonViewController: PokemonManagerDelegate {
 //        print(pokemons.choose(4))
         random4Pokemons = pokemons.choose(4)
         let index = Int.random(in: 0...3)
-        let imageData = random4Pokemons[index].imageURL
-        correctAnswer = random4Pokemons[index].name
+        let imageData = random4Pokemons[index].imageURL ?? ""
+        correctAnswer = random4Pokemons[index].name ?? ""
         
         imageManager.fetchImage(url: imageData)
     }
@@ -68,7 +124,18 @@ extension PokemonViewController: PokemonManagerDelegate {
 
 extension PokemonViewController: ImageManagerDelegate {
     func didUpdateImage(image: ImageModel) {
-        print(image.imageURL)
+//        print(image.imageURL)
+        correctAnswerImage = image.imageURL
+        DispatchQueue.main.async { [self] in
+            let url = URL(string: image.imageURL)
+            let effectImage = ColorControlsProcessor(brightness: -1, contrast: 1, saturation: 1, inputEV: 0)
+            pokemonImage.kf.setImage(with: url,
+            options: [
+                .processor(effectImage)
+            ])
+            
+        }
+        
     }
     func didFailWithErrorImage(error: Error) {
         print(error)
