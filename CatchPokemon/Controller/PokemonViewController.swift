@@ -56,8 +56,8 @@ extension PokemonViewController: PokemonManagerDelegate {
 //        print(pokemons.choose(4))
         random4Pokemons = pokemons.choose(4)
         let index = Int.random(in: 0...3)
-        let imageData = random4Pokemons[index].imageURL!
-        correctAnswer = random4Pokemons[index].name!
+        let imageData = random4Pokemons[index].imageURL
+        correctAnswer = random4Pokemons[index].name
         
         imageManager.fetchImage(url: imageData)
     }

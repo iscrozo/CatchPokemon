@@ -53,7 +53,7 @@ struct PokemonManager {
         do {
             let decodeData = try decoder.decode(PokemonData.self, from: pokemonData)
             let pokemon = decodeData.results?.map{
-                PokemonModel(name: $0.name, imageURL: $0.url)
+                PokemonModel(name: $0.name!, imageURL: $0.url!)
             }
             return pokemon
         } catch {
