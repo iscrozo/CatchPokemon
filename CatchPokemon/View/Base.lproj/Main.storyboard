@@ -142,17 +142,17 @@
                         <outletCollection property="answerButtons" destination="jba-bo-YVi" collectionClass="NSMutableArray" id="em7-VS-Q1A"/>
                         <outletCollection property="answerButtons" destination="feq-aH-Nfe" collectionClass="NSMutableArray" id="Ayn-QC-khs"/>
                         <outletCollection property="answerButtons" destination="NqA-YK-tX0" collectionClass="NSMutableArray" id="L4S-W3-LKA"/>
-                        <segue destination="opP-h4-U9o" kind="presentation" identifier="goToResults" modalPresentationStyle="fullScreen" id="v0C-2c-0hd"/>
+                        <segue destination="opP-h4-U9o" kind="presentation" identifier="goToResult" modalPresentationStyle="fullScreen" id="fAP-zi-Vvx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="30" y="70"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="CFz-QN-4pn">
             <objects>
-                <viewController id="opP-h4-U9o" sceneMemberID="viewController">
+                <viewController id="opP-h4-U9o" customClass="ResultViewController" customModule="CatchPokemon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dQ-dA-9v0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,14 +171,20 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wyl-4w-gZQ" userLabel="BodyView">
-                                        <rect key="frame" x="0.0" y="219" width="378" height="301.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wyl-4w-gZQ" userLabel="BodyView">
+                                        <rect key="frame" x="0.0" y="216.5" width="378" height="307"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picachu" translatesAutoresizingMaskIntoConstraints="NO" id="qaS-u6-zm6">
                                                 <rect key="frame" x="61" y="0.0" width="256" height="256"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No, es un Picachu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQS-86-HlD">
-                                                <rect key="frame" x="104.5" y="276" width="169.5" height="25.5"/>
+                                                <rect key="frame" x="104.5" y="256" width="169.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perdiste, tu puntaje es" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T9-0H-BCE">
+                                                <rect key="frame" x="83" y="281.5" width="212.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
