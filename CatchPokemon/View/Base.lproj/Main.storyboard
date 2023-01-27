@@ -212,6 +212,9 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="baseBackgroundColor" systemColor="linkColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="playAgainPressed:" destination="opP-h4-U9o" eventType="touchUpInside" id="5e9-IQ-Bnc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -228,6 +231,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fJs-Dw-Ukv"/>
+                    <connections>
+                        <outlet property="pokemonImage" destination="qaS-u6-zm6" id="5Lu-Gz-Bs8"/>
+                        <outlet property="pokemonLabel" destination="dQS-86-HlD" id="DD2-C6-x7g"/>
+                        <outlet property="scoreLabel" destination="8T9-0H-BCE" id="Pqq-cQ-zNJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEV-ER-Lp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
